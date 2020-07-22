@@ -77,7 +77,7 @@ button {
 
 /* Phrase */
 
-.letter {
+.letter, .show {
   font-size: var(--font-size-medium);
   height: 65px;
   width: 65px;
@@ -93,8 +93,9 @@ button {
 }
 
 .show {
-  color: #000;
-  background-color: #76CE82;
+  color: white;
+  background-color: turquoise;
+  transition: all .6s ease-in-out;
 }
 
 /* Keyboard */
