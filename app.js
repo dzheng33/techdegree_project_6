@@ -135,7 +135,7 @@ retry.addEventListener("click", function(){
         const numberOfKeys = keys.length;
             for(let j = 0; j < numberOfKeys; j++){
                 keys[j].className = "";
-                keys[j].setAttribute("disabled", false);
+                keys[j].disabled = false;
             }
     }
     
