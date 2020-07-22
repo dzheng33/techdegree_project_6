@@ -6,6 +6,7 @@ const startButton = document.querySelector(".btn__reset");
 const lives = document.querySelector("#scoreboard");
 const ol = lives.querySelector("ol");
 const hearts = ol.children;
+const msg = document.createElement("H2");
 let missed = 0;
 
 const retry = document.createElement("BUTTON");
@@ -70,14 +71,16 @@ function checkWin(){
     if(numberShown === numberofLetters){
         overlay.className = "win";
         overlay.style.display = "flex";
-        startButton.textContent = "YOU WIN!!!"
+        msg.textContent = "YOU WIN!!!";
+        overlay.appendChild(msg);
         overlay.appendChild(retry);
     }
 
     if(missed === 5){
         overlay.className = "lose";
         overlay.style.display = "flex";
-        startButton.textContent = "YOU LOSE!!!";
+        msg.textContent = "YOU LOSE!!!";
+        overlay.appendChild(msg);
         overlay.appendChild(retry);
     }
 }
@@ -85,6 +88,7 @@ function checkWin(){
 //listen for the start game button to be pressed
 startButton.addEventListener("click", function(){
     overlay.style.display = "none";
+    overlay.removeChild(startButton);
 });
 
 //listen for the onscreen keyboard to be clicked
@@ -111,7 +115,6 @@ qwerty.addEventListener("click", function(event){
 
 //restart game
 retry.addEventListener("click", function(){
-    overlay.removeChild(retry);
     overlay.style.display = "none";
     missed = 0;
 
